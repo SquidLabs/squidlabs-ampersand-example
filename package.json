@@ -1,0 +1,50 @@
+{
+  "name": "squidlabs-ampersand-example",
+  "version": "0.0.1",
+  "description": "ES6 ampersand example",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SquidLabs/squidlabs-ampersand-example.git"
+  },
+  "keywords": [
+    "Ampersand.js",
+    "SquidLabs",
+    "ES6",
+    "Javascript"
+  ],
+  "author": "Rick Butler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SquidLabs/squidlabs-ampersand-example/issues"
+  },
+  "homepage": "https://github.com/SquidLabs/squidlabs-ampersand-example#readme",
+  "dependencies": {
+    "ampersand-app": "^2.0.0",
+    "ampersand-form-view": "^7.1.0",
+    "ampersand-rest-collection": "^6.0.0",
+    "ampersand-router": "^5.0.0",
+    "ampersand-state": "^5.0.3",
+    "ampersand-view": "^10.0.3",
+    "ampersand-view-switcher": "^3.0.0",
+    "common-tags": "^1.8.0",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "path": "^0.12.7",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
