@@ -3,10 +3,10 @@ const path = require('path');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'main.bundle.js'
+        filename: 'app.bundle.js'
     },
     module: {
         rules: [
