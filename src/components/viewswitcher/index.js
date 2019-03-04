@@ -8,7 +8,7 @@ export default class ViewSwitcher {
       waitForRemove: false,
       autoRender: true
     };
-    for (var item in options) {
+    for (const item in options) {
       if (this.config.hasOwnProperty(item)) {
         this.config[item] = options[item];
       }
@@ -21,7 +21,7 @@ export default class ViewSwitcher {
   #rendered = false;
 
   set(view) {
-    var prev = this.previous = this.current;
+    const prev = this.previous = this.current;
 
     if (prev === view) {
       return;
@@ -40,12 +40,12 @@ export default class ViewSwitcher {
       this.#show(view);
     }
     return this;
-  };
+  }
 
   #setCurrent(view) {
     this.current = view;
     if (view) this.#registerRemoveListener(view);
-    var emptyCb = this.config.empty;
+    const emptyCb = this.config.empty;
     if (emptyCb && !this.current) {
       emptyCb();
     }
@@ -55,7 +55,7 @@ export default class ViewSwitcher {
   clear(cb) {
     this.#hide(this.current, cb);
     return this;
-  };
+  }
 
   // If the view switcher itself is removed, remove its child to avoid memory leaks
   remove() {
@@ -63,28 +63,28 @@ export default class ViewSwitcher {
     if (this.previous) this.previous.remove();
     if (this.el && this.el.parentNode) this.el.parentNode.removeChild(this.el);
     return this;
-  };
+  }
 
   #show(view) {
-    var customShow = this.show;
+    const customShow = this.show;
     this.#setCurrent(view);
     this.#render(view);
     if (customShow) customShow(view);
-  };
+  }
 
   #registerRemoveListener(view) {
     if (view && view.once) view.once('remove', this.#onViewRemove, this);
-  };
+  }
 
   #onViewRemove(view) {
-    var emptyCb = this.config.empty;
+    const emptyCb = this.config.empty;
     if (this.current === view) {
       this.current = null;
     }
     if (emptyCb && !this.current) {
       emptyCb();
     }
-  };
+  }
 
   #render(view) {
     if (!this.el) return;
@@ -96,23 +96,23 @@ export default class ViewSwitcher {
         this.el.appendChild(view.el);
       }
     }
-  };
+  }
 
   render() {
     if (this.current && !this.#rendered) {
       this.#render(this.current);
     }
-    //set rendered, el exists even if a current view was not inserted/appended
+    // set rendered, el exists even if a current view was not inserted/appended
     this.#rendered = true;
     return this;
   };
 
   #hide(view, cb) {
-    var customHide = this.hide;
+    const customHide = this.hide;
     if (!view) return cb && cb();
     if (customHide) {
       if (customHide.length === 2) {
-        customHide(view, function () {
+        customHide(view, () => {
           view.remove();
           if (cb) cb();
         });
@@ -125,5 +125,5 @@ export default class ViewSwitcher {
       view.remove();
       if (cb) cb();
     }
-  };
+  }
 }

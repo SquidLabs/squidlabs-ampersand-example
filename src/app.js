@@ -2,7 +2,10 @@ import app from 'ampersand-app';
 import Router from './components/router';
 import ContainerView from './modules/container';
 import routes from './routes';
+
 import 'bootstrap.native';
+
+import './app.scss';
 
 app.extend({
   start: () => {
