@@ -8,13 +8,15 @@ import 'bootstrap.native';
 import './app.scss';
 
 app.extend({
-  start: () => {
+  start() {
     this.registerSW();
+    this.router = new Router({ routes });
+    this.container = new ContainerView();
     this.container.render();
-    this.router.history.start();
+    this.router.history.start({pushState: true, root: '/'});
   },
-  container: new ContainerView(),
-  registerSW: () => {
+  container: null,
+  registerSW() {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then((registration) => {
@@ -25,7 +27,10 @@ app.extend({
       });
     }
   },
-  router: new Router({ routes }),
+  container: null,
+  router: null,
 });
 
-window.addEventListener('DOMContentLoaded', () => app.start());
+window.addEventListener('DOMContentLoaded', () => {
+  app.start();
+});

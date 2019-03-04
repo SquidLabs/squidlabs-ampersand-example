@@ -1,6 +1,6 @@
 import View from 'ampersand-view';
-import { safeHtml } from 'common-tags';
+import template from './template';
 
 export default View.extend({
-  template: safeHtml``,
+  template: template
 });

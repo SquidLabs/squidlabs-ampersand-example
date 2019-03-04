@@ -1,7 +1,7 @@
 import View from 'ampersand-view';
-import { safeHtml } from 'common-tags';
+import template from './template';
 
 export default View.extend({
   autoRender: true,
-  template: safeHtml`welcome`,
+  template: template,
 });

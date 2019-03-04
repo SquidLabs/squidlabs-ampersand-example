@@ -1,5 +1,10 @@
 import WelcomeView from './modules/welcome';
 
 export default {
-  '': () => this.trigger('change:page', new WelcomeView()),
+  '': {
+    name: 'welcome',
+    callback() {
+      this.trigger('page', new WelcomeView());
+    },
+  }
 };
