@@ -1,23 +1,22 @@
 import View from 'ampersand-view';
 import RequestsCollection from './collections/requests';
-import RequestModel from './models/request';
 
 export default View.extend({
   initialize() {
-    //on add, start loader
-    //on remove 
+    // on add, start loader
+    // on remove
   },
   props: {
     isVisible: ['boolean', true, false]
   },
   children: {
-    requests: RequestsCollection
+    requests: RequestsCollection,
   },
   bindings: {
-    'isVisible': {
+    isVisible: {
       type: 'toggle',
-      selector: '.loading-indicator'
-    }
+      selector: '.loading-indicator',
+    },
   },
   pushPromise(promise) {
     promise.finally(() => this.remove(promise))
@@ -31,6 +30,5 @@ export default View.extend({
   },
   hide() {
     this.isVisible = false;
-  }
-
+  },
 });

@@ -13,9 +13,8 @@ app.extend({
     this.router = new Router({ routes });
     this.container = new ContainerView();
     this.container.render();
-    this.router.history.start({pushState: true, root: '/'});
+    this.router.history.start({ pushState: true, root: '/' });
   },
-  container: null,
   registerSW() {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

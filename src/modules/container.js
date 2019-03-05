@@ -5,7 +5,7 @@ import ViewSwitcher from '../components/viewswitcher';
 import NavigationView from '../components/navigation';
 
 export default View.extend({
-  initialize: function () {
+  initialize() {
     this.listenTo(app.router, 'page', this.handlePageSwitch);
   },
   events: {
@@ -30,7 +30,7 @@ export default View.extend({
           waitForRemove: true,
           autoRender: true,
         });
-      }
+      },
     },
   },
   render() {

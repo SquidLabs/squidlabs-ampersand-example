@@ -1,6 +1,27 @@
 import View from 'ampersand-view';
+import CollectionRender from 'ampersand-collection-view';
 import template from './template';
+import NavCollection from './collection';
+import NavView from './view';
 
 export default View.extend({
-  template: template
+  template,
+  children: {
+    nav: NavCollection,
+  },
+  subviews: {
+    navItems: {
+      waitFor: 'nav.fetched',
+      hook: '',
+      prepareView(el) {
+        return new CollectionRender({
+          el,
+          view: NavView,
+        });
+      },
+    },
+  },
+  initialize() {
+    this.nav.fetch();
+  },
 });

@@ -1,4 +1,5 @@
 import WelcomeView from './modules/welcome';
+import PeopleView from './modules/people/main';
 
 export default {
   '': {
@@ -6,5 +7,11 @@ export default {
     callback() {
       this.trigger('page', new WelcomeView());
     },
-  }
+  },
+  people: {
+    name: 'people',
+    callback() {
+      this.trigger('page', new PeopleView());
+    },
+  },
 };

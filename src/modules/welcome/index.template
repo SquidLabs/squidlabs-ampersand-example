@@ -52,7 +52,7 @@ export default safeHtml`<div class="table-responsive">
               <td>Nulla</td>
               <td>quis</td>
               <td>sem</td>
-              <td>at</td>
+              <td>at1</td>
             </tr>
             <tr>
               <td>1,006</td>
@@ -126,4 +126,4 @@ export default safeHtml`<div class="table-responsive">
             </tr>
           </tbody>
         </table>
-      </div>`
+      </div>`;

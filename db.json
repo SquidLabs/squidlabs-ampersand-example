@@ -1,9 +1,58 @@
 {
-    "people":
-    [
-        {
-            "firstName": "Rick",
-            "lastName": "Butler"
-        }
-    ]
+  "nav": [
+    {
+      "id": 1,
+      "name": "Home",
+      "path": ""
+    },
+    {
+      "id": 2,
+      "name": "People",
+      "path": "People"
+    }
+  ],
+  "people": [
+    {
+      "id": 1,
+      "firstName": "Rick",
+      "lastName": "Butler",
+      "coolnessFactor": 12
+    },
+    {
+      "id": 2,
+      "firstName": "Henrik",
+      "lastName": "Joreteg",
+      "coolnessFactor": 11
+    },
+    {
+      "id": 3,
+      "firstName": "Bob",
+      "lastName": "Saget",
+      "coolnessFactor": 2
+    },
+    {
+      "id": 4,
+      "firstName": "Larry",
+      "lastName": "King",
+      "coolnessFactor": 4
+    },
+    {
+      "id": 5,
+      "firstName": "Diana",
+      "lastName": "Ross",
+      "coolnessFactor": 6
+    },
+    {
+      "id": 6,
+      "firstName": "Crazy",
+      "lastName": "Dave",
+      "coolnessFactor": 8
+    },
+    {
+      "id": 7,
+      "firstName": "Larry",
+      "lastName": "Johannson",
+      "coolnessFactor": 4
+    }
+  ]
 }

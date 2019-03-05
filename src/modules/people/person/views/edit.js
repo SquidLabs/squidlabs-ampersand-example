@@ -1,7 +1,6 @@
 import View from 'ampersand-view';
-import template from './index.template';
+import template from './edit.template';
 
 export default View.extend({
-  autoRender: true,
   template,
 });
