@@ -1,5 +1,3 @@
-import { isString } from 'lodash';
-
 const numRegex = /^\d+$/;
 const whitespaceRegex = /\s/;
 
