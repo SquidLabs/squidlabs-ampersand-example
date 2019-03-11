@@ -1,16 +1,14 @@
 import View from 'ampersand-view';
 import CollectionRenderer from 'ampersand-collection-view';
-import template from './main.template';
-import People from './index';
+import template from './summary.template';
+import PeopleCollection from '../collections/people';
+import PersonSummaryView from '../person/views/summary';
 
 export default View.extend({
-  initialize() {
-    this.people.fetch();
-  },
+  autoRender: true,
   template,
   children: {
-    // we put people in children instead of collection to have event listeners
-    people: People.Collection,
+    people: PeopleCollection,
   },
   subviews: {
     peopleSummary: {
@@ -20,10 +18,16 @@ export default View.extend({
         return new CollectionRenderer({
           collection: this.get('people'),
           el,
-          view: People.Person.Views.Detail,
+          view: PersonSummaryView,
           parent: this,
         });
       },
     },
+  },
+  initialize() {
+    this.on('all', function () {
+      debugger;
+    });
+    this.people.fetch();
   },
 });

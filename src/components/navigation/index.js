@@ -1,6 +1,6 @@
 import View from 'ampersand-view';
 import CollectionRender from 'ampersand-collection-view';
-import template from './template';
+import template from './navigation.template';
 import NavCollection from './collection';
 import NavView from './view';
 

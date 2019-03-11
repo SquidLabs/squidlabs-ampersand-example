@@ -4,6 +4,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const precss = require('precss');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -57,7 +58,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new LodashModuleReplacementPlugin(),
+    new LodashModuleReplacementPlugin({
+      paths: true,
+    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast 

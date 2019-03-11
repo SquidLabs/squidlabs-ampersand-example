@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open --mode=development",
+    "start": "npm run api & webpack-dev-server --open --mode=development --delay 3000",
     "api": "json-server --watch db.json --port 3001",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/"
@@ -55,6 +55,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-lodash": "^3.3.4",
     "bootstrap.native-loader": "^1.0.7",
+    "clean-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "editorconfig": "^0.15.2",
     "eslint": "^5.15.0",

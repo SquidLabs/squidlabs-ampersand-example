@@ -1,7 +1,7 @@
-import Collection from 'ampersand-rest-collection';
+import BaseCollection from '../../../components/collection/base';
 import PersonModel from '../person/model';
 
-export default Collection.extend({
+export default BaseCollection.extend({
   model: PersonModel,
   url() {
     return '//localhost:3001/people';

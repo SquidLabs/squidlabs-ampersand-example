@@ -1,11 +1,13 @@
+/* eslint-disable no-underscore-dangle */
 import View from 'ampersand-view';
 import { invokeMap } from 'lodash';
 import app from 'ampersand-app';
-import ViewSwitcher from '../components/viewswitcher';
+import ViewSwitcher from 'ampersand-view-switcher';
 import NavigationView from '../components/navigation';
 
 export default View.extend({
   initialize() {
+    this.handleInternalLink.bind(this);
     this.listenTo(app.router, 'page', this.handlePageSwitch);
   },
   events: {
@@ -20,7 +22,7 @@ export default View.extend({
           waitForRemove: true,
           autoRender: true,
         });
-      }
+      },
     },
     main: {
       hook: 'main',
@@ -39,10 +41,10 @@ export default View.extend({
     this._rendered = true;
     return this;
   },
-  handleInternalLink(event) {
-    event.preventDefault();
+  handleInternalLink(e) {
+    e.preventDefault();
 
-    const el = event.currentTraget;
+    const el = e.target;
     const path = el.getAttribute('href');
 
     app.router.navigate(path);
