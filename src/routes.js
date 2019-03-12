@@ -1,21 +1,28 @@
 /* eslint-disable func-names */
 /* eslint-disable quote-props */
+import app from 'ampersand-app';
+import forEach from 'lodash/forEach';
 import WelcomeView from './modules/welcome';
-import PeopleSummaryPage from './modules/people/pages/summary';
-import PersonDetailPage from './modules/people/person/pages/detail';
-import PersonEditPage from './modules/people/person/pages/edit';
+
+function bindRoutes(routeCollection) {
+  forEach(routeCollection, (callback, key) => {
+    app.router.route(key, callback);
+    app.router.history.loadUrl(app.router.history.getFragment());
+  });
+}
 
 export default {
   '': function () {
     this.trigger('page', new WelcomeView());
   },
   'people': function () {
-    this.trigger('page', new PeopleSummaryPage());
+    import(/* webpackPrefetch: true */'./modules/people/routes').then((routes) => {
+      bindRoutes(routes.default);
+    });
   },
-  'people/:id': function () {
-    this.trigger('page', new PersonDetailPage());
-  },
-  'perople/:id/edit': function () {
-    this.trigger('page', new PersonEditPage());
+  'person/*path': function () {
+    import(/* webpackPrefetch: true */'./modules/person/routes').then((routes) => {
+      bindRoutes(routes.default);
+    });
   },
 };

@@ -14,6 +14,7 @@ app.extend({
     this.container = new ContainerView();
     this.container.render();
     this.router.history.start({ pushState: true, root: '/' });
+    window.app = app;
   },
   registerSW() {
     if ('serviceWorker' in navigator) {

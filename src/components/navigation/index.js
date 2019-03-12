@@ -1,27 +1,29 @@
 import View from 'ampersand-view';
-import CollectionRender from 'ampersand-collection-view';
-import template from './navigation.template';
-import NavCollection from './collection';
-import NavView from './view';
+import CollectionRenderer from 'ampersand-collection-view';
+import NavigationCollection from './collection';
+import LinkView from './view';
+import template from './index.template';
 
 export default View.extend({
   template,
   children: {
-    nav: NavCollection,
+    links: NavigationCollection,
   },
   subviews: {
-    navItems: {
-      waitFor: 'nav.fetched',
-      hook: '',
+    navLinks: {
+      waitFor: 'links.fetched',
+      hook: 'navigation-list',
       prepareView(el) {
-        return new CollectionRender({
+        return new CollectionRenderer({
+          collection: this.get('links'),
           el,
-          view: NavView,
+          view: LinkView,
+          parent: this,
         });
       },
     },
   },
   initialize() {
-    this.nav.fetch();
+    this.links.fetch();
   },
 });

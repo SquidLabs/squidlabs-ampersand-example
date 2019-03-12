@@ -1,0 +1,8 @@
+import { safeHtml } from 'common-tags';
+
+export default safeHtml`<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<div class="sidebar-sticky">
+  <ul data-hook="navigation-list" class="nav flex-column">
+  </ul>
+</div>
+</nav>`;

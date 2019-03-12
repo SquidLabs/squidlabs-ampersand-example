@@ -1,4 +1,4 @@
-import Collection from 'ampersand-rest-collection';
+import Collection from '../collection/base';
 import NavModel from './model';
 
 export default Collection.extend({

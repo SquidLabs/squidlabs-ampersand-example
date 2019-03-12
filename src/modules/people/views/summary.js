@@ -1,7 +1,6 @@
 import View from 'ampersand-view';
 import template from './summary.template';
 
-
 export default View.extend({
   template,
   bindings: {

@@ -1,4 +1,4 @@
-import BaseModel from '../../../components/model/base';
+import BaseModel from '../../components/model/base';
 
 export default BaseModel.extend({
   props: {

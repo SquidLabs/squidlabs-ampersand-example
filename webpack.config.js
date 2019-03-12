@@ -8,10 +8,26 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: {
+    app: './src/app.js',
+    people: './src/modules/people/routes.js',
+    person: './src/modules/person/routes.js',
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'app.bundle.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].chunk.bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          chunks: 'async',
+          test: /[\\/]node_modules[\\/]/,
+          priority: 1
+        },
+      },
+    },
   },
   mode: 'development',
   module: {
@@ -38,7 +54,7 @@ module.exports = {
         }, {
           loader: 'postcss-loader', // Run post css actions
           options: {
-            plugins: function () { // post css plugins, can be exported to postcss.config.js
+            plugins() { // post css plugins, can be exported to postcss.config.js
               return [
                 precss,
                 autoprefixer
@@ -60,11 +76,12 @@ module.exports = {
   plugins: [
     new LodashModuleReplacementPlugin({
       paths: true,
+      collections: true,
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new WorkboxPlugin.GenerateSW({
-      // these options encourage the ServiceWorkers to get in there fast 
+      // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true,

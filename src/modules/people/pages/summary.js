@@ -1,8 +1,8 @@
 import View from 'ampersand-view';
 import CollectionRenderer from 'ampersand-collection-view';
 import template from './summary.template';
-import PeopleCollection from '../collections/people';
-import PersonSummaryView from '../person/views/summary';
+import PeopleCollection from '../../../libs/people/collection';
+import PersonSummaryView from '../views/summary';
 
 export default View.extend({
   autoRender: true,

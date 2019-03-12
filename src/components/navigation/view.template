@@ -1,0 +1,10 @@
+import { safeHtml } from 'common-tags';
+
+export default function () {
+  return safeHtml`
+<li class="nav-item">
+  <a class="nav-link" data-internal-link href="${this.model.path}">
+  ${this.model.name}
+  </a>
+</li>`;
+}
